@@ -10,6 +10,6 @@
     "emitDecoratorMetadata": true,
     "strictPropertyInitialization": false
   },
-  "include": ["src/**/*.ts"],
+  "include": ["src/**/*.ts", "src/dtos/character"],
   "exclude": ["node_modules"]
 }
