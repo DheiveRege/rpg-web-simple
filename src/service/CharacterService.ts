@@ -1,9 +1,13 @@
+import id from "zod/v4/locales/id.js";
 import { AppDataSource } from "../config/DataSource";
-import { BadRequestError, ConflictError, NotFound } from "../errors";
+import { BadRequestError, NotFound } from "../errors";
 import { Character } from "../models/Character";
+import { User } from "../models/User";
+import { Not } from "typeorm";
 
 
 const characterRepository = AppDataSource.getRepository(Character);
+const userReposit = AppDataSource.getRepository(User)
 
 export class CharacterService {
     async list() {
@@ -26,65 +30,81 @@ export class CharacterService {
         return character;
     }
 
-    async create(name: string, className: string) {
-        if (!name || !className) {
-            throw new BadRequestError('Name and class are required');
+    async create(name: string, className: string, userId: number) {
+
+        if (!name || !className || !userId) {
+            throw new BadRequestError('Name, class and accont are required');
         }
 
-        let character: Character;
+        let character = new Character();
+        const user = await userReposit.findOneBy({ id: userId })
+
+        if (!user) {
+            throw new NotFound('User is not found')
+        }
 
         switch (className) {
             case "Warrior":
-                character = characterRepository.create({
-                    name,
-                    className,
-                    health: 100,
-                    maxHealth: 100,
-                    strength: 10,
-                    agility: 5,
-                    mana: 0
-                });
+                character.user = user
+                character.className = className
+                character.name = name
+                character.health = 100
+                character.maxHealth = 100
+                character.strength = 10
+                character.agility = 5
+                character.mana = 0
+                character.maxMana = 0
+
+
+                console.log("TESTE1");
+
                 break;
 
             case "Mage":
-                character = characterRepository.create({
-                    name,
-                    className,
-                    health: 80,
-                    maxHealth: 80,
-                    strength: 2,
-                    agility: 3,
-                    mana: 15
-                });
+                character.user = user
+                character.className = className
+                character.name = name
+                character.health = 70
+                character.maxHealth = 70
+                character.strength = 2
+                character.agility = 4
+                character.mana = 20
+                character.maxMana = 50
+
+                console.log("TESTE2");
                 break;
 
             case "Ladino":
-                character = characterRepository.create({
-                    name,
-                    className,
-                    health: 75,
-                    maxHealth: 75,
-                    strength: 7,
-                    agility: 8,
-                    mana: 0
-                });
+                character.user = user
+                character.className = className
+                character.name = name
+                character.health = 75
+                character.maxHealth = 75
+                character.strength = 7
+                character.agility = 11
+                character.mana = 0
+                character.maxMana = 0
+
+                console.log("TESTE3");
                 break;
 
             case "Archeir":
-                character = characterRepository.create({
-                    name,
-                    className,
-                    health: 80,
-                    maxHealth: 80,
-                    strength: 6,
-                    agility: 10,
-                    mana: 0
-                });
+                character.user = user
+                character.className = className
+                character.name = name
+                character.health = 80
+                character.maxHealth = 80
+                character.strength = 8
+                character.agility = 10
+                character.mana = 0
+                character.maxMana = 0
+
+                console.log("TESTE4");
                 break;
             default:
                 throw new BadRequestError('invalid class')
         }
-
+        const newChar = await characterRepository.save(character)
     }
 
     async delete(id: number) {
