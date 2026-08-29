@@ -11,9 +11,9 @@ export const CreateUserDTO = z.object({
     password: z.string('nome obrigatorio e tem que ser string')
         .min(8, 'Password must have least 8 character')
         .max(255, 'Limit character 255')
-        .regex(/^ (?=.* [A - Z]) /, 'Password deve conter uma letra maiuscula')
-        .regex(/^(?=.*[a - z])/, 'Deve conter pelo menos 1 letra minuscula sem sentido ne filho mas faz ai se nao te espanco')
-        .regex(/^ (?=.* [A - Z]) /, "Password deve conter um numero😁")
+        .regex(/^(?=.*[A-Z])/, 'Password deve conter uma letra maiuscula')
+        .regex(/^(?=.*[a-z])/, 'Deve conter pelo menos 1 letra minuscula sem sentido ne filho mas faz ai se nao te espanco')
+        .regex(/^(?=.*[0-9])/, "Password deve conter um numero😁")
         .regex(/^(?=.*[!@#$%¨&*(\)|/`^'":;?.,-_=+{}])/, 'Password must have a character special')
 
 });

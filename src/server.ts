@@ -1,17 +1,21 @@
 import express, { Application } from "express";
 import { AppDataSource } from "./config/DataSource";
-import userRoutes from "./routes/UserRoutes"
+import UserRoutes from "./routes/UserRoutes"
 import { errorHanler } from "./middlewares/ErrorHandler";
+import CharacterRoutes from "./routes/CharacterRoutes"
+
 
 
 const PORT = 3000;
 const app: Application = express();
 
-app.use('/api', userRoutes)
+app.use(express.json())
+
+app.use('/api', UserRoutes)
+app.use('/api', CharacterRoutes)
+app.use('/api', CharacterRoutes)
 
 app.use(errorHanler)
-
-app.use(express.json())
 
 AppDataSource.initialize()
     .then(() => {
@@ -19,7 +23,8 @@ AppDataSource.initialize()
         app.listen(PORT, () => {
             console.log(`Servidor RODA EM http://localhost:${PORT}`);
         })
-    }).catch(() => {
-        console.log('Bd-RPG nao inicializou kkkk se fodeu');
+    }).catch((error) => {
+        console.log('Bd-RPG nao inicializou kkkk se fodeu', error);
 
     })
+
