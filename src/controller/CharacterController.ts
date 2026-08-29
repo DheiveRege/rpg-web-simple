@@ -3,7 +3,7 @@ import { CharacterService } from '../service/CharacterService';
 
 const characterService = new CharacterService();
 
-export class UserController {
+export class CharacterController {
     async list(req: Request, res: Response) {
         const chraacter = await characterService.list();
         return res.json(chraacter);
@@ -18,9 +18,10 @@ export class UserController {
 
     async create(req: Request, res: Response) {
 
-        const { name, className } = req.body;
+        const { name, className, userId } = req.body;
 
-        const character = await characterService.create(name, className);
+        const character = await characterService.create(name, className, userId);
+        console.log("TESTEE controller");
 
         return res.status(201).json(character);
 

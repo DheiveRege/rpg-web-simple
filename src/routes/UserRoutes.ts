@@ -8,9 +8,9 @@ const userController = new UserController();
 
 //Routes of Users
 routes.get('/users', userController.list)
-routes.get('/users', userController.show)
+routes.get('/users/:id', userController.show)
 routes.post('/users', validateMiddleware(CreateUserDTO), userController.create)
 routes.patch('/users', validateMiddleware(UpdateUserDTO), userController.update)
-routes.delete('/users', userController.delete)
+routes.delete('/users/:id', userController.delete)
 
 export default routes;
