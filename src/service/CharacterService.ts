@@ -10,6 +10,15 @@ const characterRepository = AppDataSource.getRepository(Character);
 const userReposit = AppDataSource.getRepository(User)
 
 export class CharacterService {
+
+    async attack() {
+        
+    }
+
+    async takeDamage() {
+
+    }
+
     async list() {
         return characterRepository.find({
             relations: { user: true },
