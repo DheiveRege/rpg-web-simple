@@ -1,8 +1,9 @@
 import express, { Application } from "express";
 import { AppDataSource } from "./config/DataSource";
-import UserRoutes from "./routes/UserRoutes"
+import UserRoutes from "./routes/User.Routes";
 import { errorHanler } from "./middlewares/ErrorHandler";
-import CharacterRoutes from "./routes/CharacterRoutes"
+import CharacterRoutes from "./routes/Character.Routes";
+import AuthRoutes from "./routes/Auth.Routes"
 
 
 
@@ -14,6 +15,7 @@ app.use(express.json())
 app.use('/api', UserRoutes)
 app.use('/api', CharacterRoutes)
 app.use('/api', CharacterRoutes)
+app.use('/api', AuthRoutes)
 
 app.use(errorHanler)
 

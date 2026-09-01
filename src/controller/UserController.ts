@@ -10,20 +10,20 @@ export class UserController {
     }
 
     async show(req: Request, res: Response) {
-
         const user = await userService.show(Number(req.params.id));
         return res.json(user);
-
     }
 
     async create(req: Request, res: Response) {
-
         const { name, email, password } = req.body;
 
-        const user = await userService.create(name, email, password);
+        const user = await userService.create({
+            name,
+            email,
+            password
+        });
 
         return res.status(201).json(user);
-
     }
 
     async update(req: Request, res: Response) {
@@ -31,19 +31,18 @@ export class UserController {
 
         const user = await userService.update(
             Number(req.params.id),
-            name,
-            email
+            {
+                name,
+                email
+            }
         );
 
         return res.json(user);
-
     }
 
     async delete(req: Request, res: Response) {
-
         await userService.delete(Number(req.params.id));
 
         return res.status(204).send();
-
     }
 }
