@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sistema de RPG - Personagem</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/personagem.css">
+</head>
+
+<body>
+
+    <main class="personagem-header">
+
+        <div class="escolha-personagem">
+            <h1>Escolha seu personagem</h1>
+
+            <p class="subtitulo"> Escolha seu Guerreiro! </p>
+
+            <div class="campo">
+                <label for="nomePersonagem"> Nome </label>
+                <input type="text" id="nome" placeholder="Digite seu nome">
+            </div>
+
+            <div class="campo">
+                <label for="personagem"> Escolha um personagem </label>
+
+                <select id="personagem">
+                    <option value=""> Selecione um personagem </option>
+                    <option value="ladino"> Ladino </option>
+                    <option value="guerreiro"> Guerreiro </option>
+                    <option value="mago"> Mago </option>
+                    <option value="arqueiro"> Arqueiro </option>
+
+                </select>
+
+            </div>
+
+            <button class="btn-pronto"> Pronto </button>
+
+        </div>
+
+        <div class="informacoes-personagem">
+            <div class="personagem-detalhes">
+
+                <img id="imagemPersonagem" alt="" data-img="">
+
+                <div class="dados-personagem">
+
+                    <h2 id="nomePersonagem"> Escolha um personagem </h2>
+
+                    <p id="classePersonagem"></p>
+                    <p id="vidaPersonagem"></p>
+                    <p id="forcaPersonagem"></p>
+                    <p id="agilidadePersonagem"></p>
+                    <p id="manaPersonagem"></p>
+
+                </div>
+            </div>
+        </div>
+    </main>
+    <script type="module" src="/Sistema_RPG/js/personagem.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,130 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+}
+
+body {
+    font-family: "Cinzel", serif;
+    background-image: url("../assets/images/cena_7.png");
+    background-size: cover;
+    background-position: center;
+    color: #5c481c;
+}
+
+.personagem-header {
+    width: 90%;
+    max-width: 1200px;
+    min-height: 550px;
+    margin: 50px auto;
+    display: grid; 
+    grid-template-columns: 50% 50%;
+    background-color: rgba(255, 248, 220, 0.95);
+    border: 2px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+}
+
+.escolha-personagem {
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.escolha-personagem h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.subtitulo {
+    color: #6b5525;
+     font-weight: bold;
+     font-size: 20px;
+    margin-bottom: 40px;
+}
+
+.campo {
+        font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 25px;
+}
+
+.campo label {
+    margin-bottom: 8px;
+}
+
+.campo input,
+.campo select {
+    width: 100%;
+    padding: 14px;
+    border: 1px;
+    border-radius: 6px;
+    font-size: 15px;
+    outline: none;
+}
+
+
+.btn-pronto {
+    width: 100%;
+    padding: 15px;
+    background-color: #c49a3a;
+    color: #1f1608;
+    border: 2px;
+    border-radius: 7px;
+    font-family: "Cinzel", serif;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+
+.informacoes-personagem {
+    font-family: "Cinzel", serif;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+
+
+.personagem-detalhes {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    font-weight: bold;
+
+}
+
+
+.personagem-detalhes img {
+    width: 250px;
+    height: 280px;
+    object-fit: cover;
+font-weight: bold;
+    border: 3px ;
+    border-radius: 10px;
+     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+.dados-personagem {
+    text-align: left;
+}
+
+.dados-personagem h2 {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.dados-personagem p {
+    margin: 8px 0;
+}

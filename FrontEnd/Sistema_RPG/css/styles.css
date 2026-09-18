@@ -1,0 +1,73 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body { 
+    
+   min-height: 100vh;
+    margin: 0;
+    font-family: "Cinzel", sans-serif;
+    background-image: url("../assets/images/fundoPagina1.3.jpg");
+    background-size: cover;
+    background-position: center 20%;
+    color: white;
+}
+
+.header {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+
+}
+
+.header h1 {
+    color: #dca650;
+    font-size: 52px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    position: relative;
+    top: -130px;
+    text-shadow:
+        2px 2px 0px #4d3f14,
+        4px 4px 8px rgba(0, 0, 0, 0.5);
+    
+}
+
+.header p{
+    color: white;
+    position: relative;
+    top: -90px;
+    font-size: 25px;
+}
+
+.header h2{
+    color: #dca650;
+    position: relative;
+    top: -40px;
+    letter-spacing: 4px;
+    font-size: 40px;
+    text-transform: uppercase;
+    text-shadow:
+        2px 2px 0px #4d3f14,
+        4px 4px 8px rgba(0, 0, 0, 0.5);
+    
+}
+
+.btnInicio {
+    font-family: "Cinzel", sans-serif;
+    padding: 20px 40px;
+    background-color: #dca650;
+    color: #4d3f14;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 30px;
+    font-weight: bold;
+}
