@@ -4,18 +4,20 @@ import UserRoutes from "./routes/User.Routes";
 import { errorHanler } from "./middlewares/ErrorHandler";
 import CharacterRoutes from "./routes/Character.Routes";
 import AuthRoutes from "./routes/Auth.Routes"
+import cors from 'cors';
 
 
 
 const PORT = 3000;
 const app: Application = express();
 
-app.use(express.json())
+app.use(cors());
+app.use(express.json());
 
-app.use('/api', UserRoutes)
-app.use('/api', CharacterRoutes)
-app.use('/api', CharacterRoutes)
-app.use('/api', AuthRoutes)
+app.use('', UserRoutes)
+app.use('', CharacterRoutes)
+app.use('', CharacterRoutes)
+app.use('', AuthRoutes)
 
 app.use(errorHanler)
 
